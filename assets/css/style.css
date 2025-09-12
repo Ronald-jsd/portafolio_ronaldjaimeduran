@@ -1,6 +1,216 @@
 /* ----- POPPINS FONT Link ----- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+ 
+/* ----- MODO CLARO ----- */
+body.light-mode {
+    background: #f4f4f4;
+    color: #222;
+}
+
+body.light-mode,
+body.light-mode .container,
+body.light-mode .section,
+body.light-mode nav,
+body.light-mode footer,
+body.light-mode .featured-text,
+body.light-mode .featured-name,
+body.light-mode .featured-text-info,
+body.light-mode .project-box-info,
+body.light-mode .top-header,
+body.light-mode .skills-header,
+body.light-mode .contact-info,
+body.light-mode .form-inputs,
+body.light-mode .form-button,
+
+body.light-mode .bottom-footer {
+    color: #222;
+    background: #fff;
+}
+
+/* Menú responsive en modo claro */
+body.light-mode .nav-menu.responsive {
+    background: rgb(240, 237, 237) !important; /* Blanco semitransparente */
+ 
+}
+
+body.light-mode .nav-link {
+    color: #222 !important;
+}
+
+body.light-mode .nav-link:hover::after {
+    background: #1340d3ba !important;
+}
+/**/
+
+body.light-mode .about-info{
+	background: #f7f4f4;
+    color: #fff;
+    border: 1px solid #e0e0e0 ;
+}
+
+body.light-mode .about-info p  {
+     color:  rgb(54, 53, 53) ;
+ }
+ 
+body.light-mode .btn {
+    background: #222;
+    color: #fff;
+    border: 1px solid #222;
+}
+
+body.light-mode .btn:hover {
+    background: #444;
+    color: #fff;
+    border: 1px solid #222;
+}
+
+body.light-mode .background {
+    display: none !important;
+}
+
+/*Icono */
+body.light-mode .info-btn-img {
+    filter: none !important;
+    color: #222 !important;
+}
+/* Oculta la imagen de fondo en modo claro */
+body.light-mode .featured-box {
+    background-image: none !important;
+    background-color: #fff !important;
+    background-blend-mode: normal !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+}
+
+/* Textos destacados */
+body.light-mode .featured-name,
+body.light-mode .featured-text-info,
+body.light-mode .project-box-info,
+body.light-mode .top-header h1,
+body.light-mode .top-header span,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode .contact-info > h2,
+body.light-mode .contact-info > p,
+body.light-mode .project-box-info-title-h4 {
+    color: #222 !important;
+}
+
+
+
+/* Ajuste de enlaces */
+body.light-mode a,
+body.light-mode .nav-link {
+    color: #06012b !important;
+}
+
+/* Ajuste de iconos */
+body.light-mode i,
+body.light-mode .icon-i i {
+    color: #ddd3d3 !important;
+	
+}
+
+  
+
+/* Ajuste de cajas y fondos secundarios */
+body.light-mode .project-container-box,
+body.light-mode .skills-box,
+body.light-mode .contact-info,
+body.light-mode .about-info,
+body.light-mode .section-skill-box {
+    background: #f3efef !important;
+    color: #222 !important;
+    border-color: #e0e0e0 !important;
+}
+
+/* Ajuste de selectores de CV */
+body.light-mode .nav-button select {
+    background-color: #fff;
+    color: #222;
+    border: 2px solid #878d88cb;
+}
+
+/* Ajuste de botones de proyectos */
+body.light-mode .project-box-info-btn a {
+    background-color: #e0e0e0;
+    color: #222;
+}
+
+body.light-mode .project-box-info-btn a:hover {
+    background-color: #d1d1d1;
+    color: #222;
+}
+
+/* Ajuste de tecnología */
+body.light-mode .technology-item {
+    background-color: #e0e0e0;
+    color: #222;
+}
+
+body.light-mode .technology-item:hover {
+    background-color: #d1d1d1;
+}
+
+/* Ajuste de footer */
+body.light-mode .footer-social-icons .icon-i {
+    background-color:  #2d56dfba;
+}
+
+body.light-mode .footer-social-icons .icon-i:hover {
+    background-color: #5f5e5e;
+}
+
+body.light-mode .bottom-footer {
+    color: #444;
+}
+
+/* Ajuste de inputs y textarea */
+body.light-mode .input-field,
+body.light-mode textarea {
+    background: #fff;
+    color: #222;
+    border: 2px solid #aaaaaa;
+}
+
+body.light-mode .input-field::placeholder,
+body.light-mode textarea::placeholder {
+    color: #888;
+}
+
+/* Ajuste de scroll-btn */
+body.light-mode .scroll-btn {
+    color: #222;
+    background: #fff;
+    border: solid 1px #e0e0e0;
+}
+
+body.light-mode .scroll-btn:hover {
+    background-color: #ffea00dc;
+    color: #222;
+}
+
+/* Ajuste de selectores de Google Translate */
+body.light-mode .goog-te-combo {
+    background-color: #fff;
+    color: #222;
+    border: 1px solid #cccccc;
+}
+
+body.light-mode .featured-image .image{
+	display: flex;
+	background-color: #fff !important;
+	border: #b4f12564 7px solid;
+}
+/* Fin de modo claro */
+
+.featured-image .image{
+	display: none;
+
+}
+
+
 .google_translate {
     text-align: center;
 }
@@ -30,7 +240,7 @@
     height: 100vh;
     top: 0;
     left: 0;
-    background: #000000;
+    background: #02010f;
     overflow: hidden;
 }
 
@@ -205,7 +415,7 @@ i {
 body {
 	background: linear-gradient(
 		to bottom,
-		#0b0a0aef,
+		#08053aef,
 		#0b0a0aef 25%,
 		#2a2a2a 30%,
 		#323232 40%,
@@ -376,6 +586,15 @@ nav {
 	);
 }
 
+/* Ocultar el fondo */ 
+body.light-mode .featured-box {
+    background-image: none !important;
+    background-color: #fff !important;
+    /* Si quieres quitar el blend y el mask también: */
+    background-blend-mode: normal !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+}
 /* ----- FEATURED TEXT BOX ----- */
 .featured-text {
 	position: relative;
@@ -466,7 +685,7 @@ nav {
 	background-color: rgba(255, 255, 255, 0.824);
 }
 .icon-i:hover{
-	background-color: #a6ff0029;
+	background-color: #31312f;
 	transition: 0.3s;
 }
 
@@ -814,7 +1033,6 @@ h3 {
 
 .project-box-info-btn {
 	display: flex;
-	flex-direction: ;
 	gap: 15px;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -846,8 +1064,7 @@ h3 {
 }
 
 .info-btn-img{
-	color: white !important;
-	filter: invert(100%) sepia(100%) saturate(500%) hue-rotate(180deg);
+ 	filter: invert(100%) sepia(100%) saturate(500%) hue-rotate(180deg);
 }
 
 /* ----- CONTACT BOX ----- */
