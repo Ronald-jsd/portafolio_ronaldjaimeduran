@@ -4,18 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Ronald Jaime - Desarrollador de software especializado en Java, Spring Boot y SQL.">
+    <meta name="description"
+        content="Portfolio de Ronald Jaime - Desarrollador de software especializado en Java, Spring Boot y SQL.">
     <meta name="keywords" content="Portfolio, Ronald Jaime, Desarrollador, Java, Spring Boot, Android, Backend, SQL">
     <meta name="author" content="Ronald Jaime">
-
     <title>Ronald Jaime | Portfolio</title>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <!-- --------- UNICONS ---------- -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-    <!-- --------- CSS ---------- -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- --------- FAVICON ---------- -->
-    <link rel="shortcut icon" href="assets/images/logo/image.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<>" type="image/x-icon">
     <script src="https://kit.fontawesome.com/e8a4feeeb3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -27,124 +24,101 @@
         <span></span>
         <span></span>
         <span></span>
-     </div>
-
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <div class="container">
-        <!-- icon day
-        <div class="mode-day ">
-            <i class="fa-regular fa-sun"></i>
-        </div> -->
         <div class="container-off-footer">
-           
-            <!-- --------------- HEADER --------------- -->
             <nav id="header">
-                <div class="nav-logo">
-                    <a class="nav-name" href="#">Ronald</a>
-                </div>
-                <div class="nav-menu" id="myNavMenu">
-                    <ul class="nav_menu_list">
-                        <li class="nav_list">
-                            <a href="#home" class="nav-link">Inicio</a>
-                        </li>
-                        <li class="nav_list">
-                            <a href="#about" class="nav-link">Sobre mi</a>
-                        </li>
-                        <li class="nav_list">
-                            <a href="#projects" class="nav-link">Proyectos</a>
-                        </li>
-                        <li class="nav_list">
-                            <a href="#contact" class="nav-link">Contacto</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- <div class="nav-button">
-                    <button class="btn">Download CV <i class="uil uil-file-alt"></i></button>
-                </div> -->
-                <div class="social_icons">
-                    <div class="icon-i "><a href="https://www.linkedin.com/in/ronaldjaimeduran/"><i class="fa-brands fa-linkedin-in"></i></a></div>
-                    <div class="icon-i "><a href="https://github.com/Ronald-jsd"><i class="uil uil-github-alt"></i></a></div>
-                    <!-- Audio play -->
-                    <div class="audio-section ">
-                        <audio id="miMusica" src="./assets/files/Programming Jazz for Developers.mp3" loop>
-                            Tu navegador no soporta el elemento audio.
-                        </audio>
-
-                        <button id="playPauseButton" class="icon-i" onclick="togglePlayPause()">
-                            <i id="playPauseIcon" class="fa-regular fa-circle-play"></i>
+                <div class="nav-container">
+                    <div class="nav-logo">
+                        <a class="nav-name" href="#">Ronald</a>
+                    </div>
+                    <div class="nav-menu" id="myNavMenu">
+                        <ul class="nav_menu_list">
+                            <li class="nav_list">
+                                <a href="#home" class="nav-link">Inicio</a>
+                            </li>
+                            <li class="nav_list">
+                                <a href="#about" class="nav-link">Sobre mi</a>
+                            </li>
+                            <li class="nav_list">
+                                <a href="#projects" class="nav-link">Proyectos</a>
+                            </li>
+                            <li class="nav_list">
+                                <a href="#contact" class="nav-link">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="social_icons">
+                        <div class="icon-i ">
+                            <a href="https://www.linkedin.com/in/ronaldjaimeduran/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                        <div class="icon-i ">
+                            <a href="https://github.com/Ronald-jsd" target="_blank" rel="noopener noreferrer">
+                                <i class="uil uil-github-alt"></i>
+                            </a>
+                        </div>
+                        <button id="toggleThemeBtn" class="icon-i" title="Cambiar tema">
+                            <i id="themeIcon" class="fa-regular fa-sun"></i>
                         </button>
                     </div>
-                    <!-- Botón de cambio de tema -->
-                    <button id="toggleThemeBtn" class="icon-i" title="Cambiar tema">
-                        <i id="themeIcon" class="fa-regular fa-sun"></i>
-                    </button>
-
-                </div>
-              
-
-
-                <div class="nav-menu-btn">
-                    <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+                    <div class="nav-menu-btn">
+                        <i class="uil uil-bars"></i>
+                    </div>
                 </div>
             </nav>
-           
-            <!-- -------------- MAIN ---------------- -->
 
-                <!-- -------------- FEATURED BOX ---------------- -->
-                <section class="featured-box" id="home">
+            <section class="featured-box" id="home">
+                <div class="featured-container">
                     <div class="featured-text">
                         <div class="featured-name">
-                            <p>I'm <span class="typedText"></span></p>
+                            <p>I'm
+                                <span class="typedText"></span>
+                            </p>
                         </div>
-
                         <div class="featured-text-info">
-                            <p>Me encanta explorar nuevas ideas y darles vida a través de proyectos innovadores.</p>
+                            <p>Me gusta explorar nuevas ideas y darles vida a través de proyectos innovadores.</p>
                         </div>
-                        <!-- <div class="featured-text-btn">
-                            <button class="btn blue-btn">Hire Me</button>
-                            <button class="btn">Download CV <i class="uil uil-file-alt"></i></button>
-                        </div> -->
-                        <!-- <div class="nav-button">
-                            <a href="./assets/files/CV_Ronald_Jaime_Duran.docx" download>
-                            <button class="btn">Download CV <i class="uil uil-file-alt"></i></button>
-                            </a>
-                        </div> -->
-
                         <div class="nav-button btn-download-cv">
                             <select id="fileFormat">
                                 <option class="notranslate" value="pdf">PDF</option>
                                 <option class="notranslate" value="docx">Word</option>
                             </select>
-                            <button class="btn" onclick="downloadCV()">Download CV <i class="uil uil-file-alt"></i></button>
+                            <button class="btn">Download CV <i class="uil uil-file-alt"></i></button>
                         </div>
                     </div>
-               
-                    
                     <div class="featured-image detrasRectangle">
                         <div class="image">
-                            <img src="assets/images/background/banner-dev2.gif " alt="avatar">
+                            <img src="assets/images/background/banner-dev2.gif" alt="avatar">
                         </div>
-                    </div> 
-
+                    </div>
                     <div class="scroll-icon-box">
                         <a href="#about" class="scroll-btn">
                             <i class="fas fa-mouse"></i>
                             <p class="notranslate">Scroll Down</p>
                         </a>
                     </div>
-                </section>
-                <main class="wrapper">
-
-                <!-- -------------- ABOUT BOX ---------------- -->
+                </div>
+            </section>
+            <main class="wrapper">
                 <section class="section " id="about">
                     <div class="top-header">
                         <h2>Sobre mí</h2>
                     </div>
-                    <div class="row ">
-                        <div class="col col-wrap">
+                    <div class="">
+                        <div class="col-wrap">
                             <div class="about-info">
-                                <h3>Mi introducción</h3>
-                                <p>Tengo experiencia desarrollando proyectos personales y/o universitarios especialmente con java y su framework de Spring Boot, proyectos con .Net, SQL Server y MySQL, entre otros lenguajes de Programación, 
-                                    lo que me permite poder desarrollar o colaborar en la realización de Apis o aplicaciones robustas y escalables.</p>
+                                <h3>Introducción</h3>
+                                <p>Tengo experiencia desarrollando proyectos personales y académicos, especialmente
+                                    con Java y su framework Spring Boot, así como con .NET, SQL Server y MySQL,
+                                    entre otros lenguajes de programación. Esto me permite desarrollar y colaborar
+                                    en la creación de APIs y aplicaciones robustas y escalables.</p>
                                 <div class="about-btn">
                                     <a href="#projects">
                                         <button class="btn">Proyectos <i class="fas fa-arrow-turn-down"></i></button>
@@ -152,411 +126,109 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col section-skill-box">
-                            <div class="skills-box">
-                                <div class="skills-header">
-                                    <h3>Frontend</h3>
+                        <br>
+                        <div class="tech-carousel-container">
+                            <div class="tech-carousel-track">
+                                <div class="carousel-label">Frontend</div>
+                                <div class="skills-box-icon"><span>HTML</span><img
+                                        src="./assets/images/tecnology/html-5-svgrepo-com.svg" class="icons-skills">
                                 </div>
-                                <div class="skills-list">
-                                    <div class="skills-box-icon">
-                                        <span>HTML</span>
-                                        <img src="./assets/images/tecnology/html-5-svgrepo-com.svg" alt="" class="icons-skills">
-                                    </div>
-                                    <div class="skills-box-icon">
-                                        <span>CSS</span>
-                                        <img src="./assets/images/tecnology/css-3-svgrepo-com.svg" class="icons-skills" alt="">
-                                    </div>
-                                    <div class="skills-box-icon">
-                                        <span class="notranslate">Bootstrap</span>
-                                        <img src="./assets/images/tecnology/bootstrap-svgrepo-com.svg" alt=""
-                                            class="icons-skills">
-                                    </div>
-                                    <div class="skills-box-icon">
-                                        <span class="notranslate">Thymeleaf</span>
-                                        <img src="./assets/images/tecnology/thymeleaf.png" alt=""
-                                            class="icons-skills">
-                                    </div>
-                                    <div class="skills-box-icon">
-                                        <span>JavaScript</span>
-                                        <img src="./assets/images/tecnology/javascript-svgrepo-com.svg" alt=""
-                                            class="icons-skills">
-                                    </div>
+                                <div class="skills-box-icon"><span>CSS</span><img
+                                        src="./assets/images/tecnology/css-3-svgrepo-com.svg" class="icons-skills">
                                 </div>
-                            </div>
-                            <div class="skills-box">
-                                <div class="skills-header">
-                                    <h3>Backend</h3>
+                                <div class="skills-box-icon"><span>Bootstrap</span><img
+                                        src="./assets/images/tecnology/bootstrap-svgrepo-com.svg" class="icons-skills">
                                 </div>
-                                <div class="skills-list">
-                                    <div class="skills-box-icon">
-                                        <span>Java</span>
-                                        <img src="./assets/images/tecnology/java-svgrepo-com.svg" alt="" class="icons-skills">
-                                    </div>
-                                    <div class="skills-box-icon">
-                                        <span>C#</span>
-                                        <img src="./assets/images/tecnology/csharp-svgrepo-com.svg" alt="" class="icons-skills">
-                                    </div>
-                                    <div class="skills-box-icon">
-                                        <span class="notranslate">Spring Boot</span>
-                                        <img src="./assets/images/tecnology/Spring_Boot.svg" alt="" class="icons-skills">
-                                    </div>
-                                    <div class="skills-box-icon">
-                                        <span class="notranslate">.NET</span>
-                                        <img src="./assets/images/tecnology/NET_logo.svg.png" alt="" class="icons-skills">
-                                    </div>
+                                <div class="skills-box-icon"><span>Thymeleaf</span><img
+                                        src="./assets/images/tecnology/thymeleaf.png" class="icons-skills"></div>
+                                <div class="skills-box-icon"><span>JavaScript</span><img
+                                        src="./assets/images/tecnology/javascript-svgrepo-com.svg" class="icons-skills">
                                 </div>
-                            </div>
-                            <div class="skills-box">
-                                <div class="skills-header">
-                                    <h3>Database</h3>
+                                <div class="carousel-label">Backend</div>
+                                <div class="skills-box-icon"><span>Java</span><img
+                                        src="./assets/images/tecnology/java-svgrepo-com.svg" class="icons-skills"></div>
+                                <div class="skills-box-icon"><span>C#</span><img
+                                        src="./assets/images/tecnology/csharp-svgrepo-com.svg" class="icons-skills">
                                 </div>
-                                <div class="skills-list">
-                                    <div class="skills-box-icon">
-                                        <span class="notranslate">SQL Server</span>
-                                        <img src="./assets/images/tecnology/microsoft-sql-server-logo-svgrepo-com.svg" alt=""
-                                            class="icons-skills">
-                                    </div>
-                                    <div class="skills-box-icon">
-                                        <span class="notranslate">MySQL</span>
-                                        <img src="./assets/images/tecnology/mysql_icon.png" alt=""
-                                            class="icons-skills">
-                                    </div>
+                                <div class="skills-box-icon"><span>Spring Boot</span><img
+                                        src="./assets/images/tecnology/Spring_Boot.svg" class="icons-skills"></div>
+                                <div class="skills-box-icon"><span>.NET</span><img
+                                        src="./assets/images/tecnology/NET_logo.svg.png" class="icons-skills"></div>
+                                <div class="carousel-label">Database</div>
+                                <div class="skills-box-icon"><span>SQL Server</span><img
+                                        src="./assets/images/tecnology/microsoft-sql-server-logo-svgrepo-com.svg"
+                                        class="icons-skills"></div>
+                                <div class="skills-box-icon"><span>MySQL</span><img
+                                        src="./assets/images/tecnology/mysql_icon.png" class="icons-skills"></div>
+                                <div class="carousel-label">Others</div>
+                                <div class="skills-box-icon"><span>GitHub</span><i class="fab fa-github"></i></div>
+                                <div class="skills-box-icon"><span>Trello</span><img
+                                        src="./assets/images/tecnology/trello.png" class="icons-skills"></div>
+                                <div class="skills-box-icon"><span>Postman</span><img
+                                        src="./assets/images/tecnology/Postman.png" class="icons-skills"></div>
+                                <div class="skills-box-icon"><span>Excel</span><img
+                                        src="./assets/images/tecnology/excel2-svgrepo-com.svg" class="icons-skills">
                                 </div>
-                            </div>
-                            <div class="skills-box">
-                                <div class="skills-header">
-                                    <h3>Colaboraty</h3>
+                                <div class="carousel-label">Frontend</div>
+                                <div class="skills-box-icon"><span>HTML</span><img
+                                        src="./assets/images/tecnology/html-5-svgrepo-com.svg" class="icons-skills">
                                 </div>
-                                <div class="skills-list">
-                                    <div class="skills-box-icon">
-                                        <span class="notranslate">GitHub</span>
-                                        <i class="fab fa-github"></i>
-                                    </div>
-
-                                    <div class="skills-box-icon">
-                                        <span class="notranslate">Trello</span>
-                                        <img src="./assets/images/tecnology/trello.png" alt=""
-                                        class="icons-skills">                                    
-                                    
-                                    </div>
-                                    <!-- <div class="skills-box-icon">
-                                        <span>Scrum</span>
-                                        <img src="./assets/images/tecnology/scrum.png" alt=""   class="icons-skills">
-                                    </div> -->
+                                <div class="skills-box-icon"><span>CSS</span><img
+                                        src="./assets/images/tecnology/css-3-svgrepo-com.svg" class="icons-skills">
                                 </div>
-                            </div>
-                            <div class="skills-box">
-                                <div class="skills-header">
-                                    <h3>Other</h3>
+                                <div class="skills-box-icon"><span>Bootstrap</span><img
+                                        src="./assets/images/tecnology/bootstrap-svgrepo-com.svg" class="icons-skills">
                                 </div>
-                                <div class="skills-list">
-                                    <div class="skills-box-icon">
-                                        <span class="notranslate">Postman</span>
-                                        <img src="./assets/images/tecnology/Postman.png" alt="" class="icons-skills">
-                                    </div>
-
-                                    <div class="skills-box-icon">
-                                        <span class="notranslate">Rhapsody.IBM </span>
-                                        <img src="./assets/images/tecnology/IM_IBM+Rational+Rhapsody+-+Icono.png" alt="" class="icons-skills">
-                                    </div>
-
-                                    <div class="skills-box-icon">
-                                        <span class="notranslate">Excel Adv.</span>
-                                        <img src="./assets/images/tecnology/excel2-svgrepo-com.svg" alt="" class="icons-skills">
-                                    </div>
+                                <div class="skills-box-icon"><span>Thymeleaf</span><img
+                                        src="./assets/images/tecnology/thymeleaf.png" class="icons-skills"></div>
+                                <div class="skills-box-icon"><span>JavaScript</span><img
+                                        src="./assets/images/tecnology/javascript-svgrepo-com.svg" class="icons-skills">
+                                </div>
+                                <div class="carousel-label">Backend</div>
+                                <div class="skills-box-icon"><span>Java</span><img
+                                        src="./assets/images/tecnology/java-svgrepo-com.svg" class="icons-skills"></div>
+                                <div class="skills-box-icon"><span>C#</span><img
+                                        src="./assets/images/tecnology/csharp-svgrepo-com.svg" class="icons-skills">
+                                </div>
+                                <div class="skills-box-icon"><span>Spring Boot</span><img
+                                        src="./assets/images/tecnology/Spring_Boot.svg" class="icons-skills"></div>
+                                <div class="skills-box-icon"><span>.NET</span><img
+                                        src="./assets/images/tecnology/NET_logo.svg.png" class="icons-skills"></div>
+                                <div class="carousel-label">Database</div>
+                                <div class="skills-box-icon"><span>SQL Server</span><img
+                                        src="./assets/images/tecnology/microsoft-sql-server-logo-svgrepo-com.svg"
+                                        class="icons-skills"></div>
+                                <div class="skills-box-icon"><span>MySQL</span><img
+                                        src="./assets/images/tecnology/mysql_icon.png" class="icons-skills"></div>
+                                <div class="carousel-label">Others</div>
+                                <div class="skills-box-icon"><span>GitHub</span><i class="fab fa-github"></i></div>
+                                <div class="skills-box-icon"><span>Trello</span><img
+                                        src="./assets/images/tecnology/trello.png" class="icons-skills"></div>
+                                <div class="skills-box-icon"><span>Postman</span><img
+                                        src="./assets/images/tecnology/Postman.png" class="icons-skills"></div>
+                                <div class="skills-box-icon"><span>Excel</span><img
+                                        src="./assets/images/tecnology/excel2-svgrepo-com.svg" class="icons-skills">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- -------------- PROJECT BOX ---------------- -->
                 <section class="section section-project-box-general" id="projects">
                     <div class="top-header">
                         <h2>Proyectos</h2> <br>
                         <div class="filter-buttons">
-                            <button class="notranslate" onclick="filterProjects('project-container-box')">All</button>
-                            <button class="notranslate" onclick="filterProjects('category1')">Back End</button>
-                            <button class="notranslate" onclick="filterProjects('category2')">Front End</button>
+                            <button class="notranslate" data-filter="all">All</button>
+                            <button class="notranslate" data-filter="category1">Back End</button>
+                            <button class="notranslate" data-filter="category2">Front End</button>
                         </div>
                     </div>
-
                     <div class="project-container">
- 
-                        <div class="project-container-box category1">
-                            <img class="project-box-imgg" src="./assets/images/proyects_imgs/fullstack_productos_al.png" alt="">
-                            <!-- Background image for the project -->
-                            <div class="project-box-info">
-                                <h4 class="project-box-info-title-h4">Gestión de productos de supermercado</h4>
-                                <p>Proyecto full stack para el manejo de de gestión de productos alimenticios y conexión con base de datos de MySQL.</p>
-                                <div class="project-box-info-lenguajes">
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/java-svgrepo-com.svg" alt="">
-                                        <span>Java</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/Spring_Boot.svg" alt="">
-                                        <span>Spring Boot</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/mysql_icon.png" alt="">
-                                        <span>MySQL</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/thymeleaf.png" alt="">
-                                        <span>Thymeleaf</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/intellij.png" alt="">
-                                        <span>IntelliJ</span>
-                                    </div>
-                                </div>
-                                <div class="project-box-info-btn">
-                                    <!-- <a href=""><img class="info-btn-img" src="./assets/images/deploy-svgrepo-com.svg" alt=""> Deploy</a> -->
-                                    <a href="https://github.com/Ronald-jsd/fullstack-spring-boot-gestion " target="_blank">
-                                        <img class="info-btn-img" src="./assets/images/buttons/enlace.png" alt="">
-                                        Code
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- --------------------- -->
-                        <div class="project-container-box category1">
-                            <img class="project-box-imgg" src="./assets/images/proyects_imgs/api_rest_prendas.png" alt="">
-                            <div class="project-box-info">
-                                <h4 class="project-box-info-title-h4">API REST Gestión de artículos de vestir</h4>
-                                <p>Creación de una API REST sobre la gestión de artículos de vestir con conexión a MySQL y documentado con Swagger.</p>
-                                <div class="project-box-info-lenguajes">
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/java-svgrepo-com.svg" alt="">
-                                        <span>Java</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/Spring_Boot.svg" alt="">
-                                        <span>Spring Boot</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/mysql_icon.png" alt="">
-                                        <span>MySQL</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/intellij.png" alt="">
-                                        <span>IntelliJ</span>
-                                    </div>
-                                </div>
-                                <div class="project-box-info-btn">
-                                    <!-- <a href=""><img class="info-btn-img" src="./assets/images/deploy-svgrepo-com.svg" alt=""> Deploy</a> -->
-                                    <a href="https://github.com/Ronald-jsd/api-rest-gestion-productos" target="_blank">
-                                        <img class="info-btn-img" src="./assets/images/buttons/enlace.png" alt="">
-                                        Code
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- CARD  -->
-                        <div class="project-container-box category1 ">
-                            <img class="project-box-imgg" src="./assets/images/proyects_imgs/conversor_monedas.png" alt="">
-                            <div class="project-box-info">
-                                <h4 class="project-box-info-title-h4">Consumo de API  Conversor de Moneda</h4>
-                                <p>Proyecto en el cual se consumió una api externa de distintos tipos de monedas y realizar la conversión con esos datos(Uso de Java Swing para la interfaz gráfica). </p>
-                                <div class="project-box-info-lenguajes">
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/java-svgrepo-com.svg" alt="">
-                                        <span>Java</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/gson.png" alt="">
-                                        <span>Gson</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/eclipse-ide.png" alt="">
-                                        <span>Eclipse</span>
-                                    </div>
-                                </div>
-                                <div class="project-box-info-btn">
-                                    <!-- <a href=""><img class="info-btn-img" src="./assets/images/deploy-svgrepo-com.svg" alt=""> Deploy</a> -->
-                                    <a href="https://github.com/Ronald-jsd/challenge-conversor-de-monedas-app" target="_blank">
-                                        <img class="info-btn-img" src="./assets/images/buttons/enlace.png" alt="">
-                                        Code
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="project-container-box category1 ">
-                            <img class="project-box-imgg" src="./assets/images/proyects_imgs/android-app.png" alt="">
-                            <div class="project-box-info">
-                                <h4 class="project-box-info-title-h4">Gestión de Inventario y Ventas</h4>
-                                <p>Aplicación Android en el cual se utilizo la IA para su desarrollo de manera eficaz cumpliendo los requisitos y buenas practicas. </p>
-                                <div class="project-box-info-lenguajes">
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/sqlLite.png" alt="">
-                                        <span>Sql Lite</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/Android_Studio_Logo_2024.svg.png" alt="">
-                                        <span>Android Studio</span>
-                                    </div>
-                                         <div class="technology-item">
-                                        <img src="./assets/images/tecnology/kotlin-png.jpg" alt="">
-                                        <span>Kotlin</span>
-                                    </div>
-                                </div>
-                                <div class="project-box-info-btn">
-                                    <!-- <a href=""><img class="info-btn-img" src="./assets/images/deploy-svgrepo-com.svg" alt=""> Deploy</a> -->
-                                    <a href="https://youtu.be/KlX1QQODmLk" target="_blank">
-                                        <img class="info-btn-img" src="./assets/images/buttons/enlace.png" alt="">
-                                        Code
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- CARD  -->
-                        <div class="project-container-box category2 ">
-                            <img class="project-box-imgg" src="./assets/images/proyects_imgs/macrocalculadora_nutri.png" alt="">
-                            <div class="project-box-info">
-                                <h4 class="project-box-info-title-h4">Macro Calculadora Nutricional</h4>
-                                <p>Calcula diversas proporciones como  IMC, porcentaje de grasa, Riesgo Cardiovascular, Peso ideal, Calorías, entre otros.</p>
-                                <div class="project-box-info-lenguajes">
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/html-5-svgrepo-com.svg" alt="">
-                                        <span>Html</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/css-3-svgrepo-com.svg" alt="">
-                                        <span>CSS</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/javascript-svgrepo-com.svg" alt="">
-                                        <span>JavaScript</span>
-                                    </div>
-                                   
-                                </div>
-                                <div class="project-box-info-btn">
-                                    <a href="https://ronald-jsd.github.io/macro-calculadora-nutricional/">
-                                        <img class="info-btn-img" src="./assets/images/buttons/deploy-svgrepo-com.svg"  target="_blank">
-                                        Deploy
-                                    </a>
-                                    <a href="https://github.com/Ronald-jsd/macro-calculadora-nutricional" target="_blank">
-                                        <img class="info-btn-img" src="./assets/images/buttons/enlace.png" alt="">
-                                        Code
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- CARD  -->
-                        <div class="project-container-box category2 ">
-                            <img class="project-box-imgg" src="./assets/images/proyects_imgs/landingPage_tecnology.png" alt="">
-                            <div class="project-box-info">
-                                <h4 class="project-box-info-title-h4">Landing Page Web Store</h4>
-                                <p>Landing page moderna sobre una tienda tecnológica con funcionalidades estáticas con el manejo de CSS y Bootstrap. Presenta un diseño responsive</p>
-                                <div class="project-box-info-lenguajes">
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/html-5-svgrepo-com.svg" alt="">
-                                        <span>Html</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/css-3-svgrepo-com.svg" alt="">
-                                        <span>CSS</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/bootstrap-svgrepo-com.svg" alt="">
-                                        <span>Bootstrap</span>
-                                    </div>
-                                </div>
-                                <div class="project-box-info-btn">
-                                    <a href="https://ronald-jsd.github.io/proyecto-web-tienda-bootstrap/">
-                                        <img class="info-btn-img" src="./assets/images/buttons/deploy-svgrepo-com.svg"  target="_blank"> 
-                                        Deploy
-                                    </a>
-                                    <a href="https://github.com/Ronald-jsd/proyecto-web-tienda-bootstrap" target="_blank">
-                                        <img class="info-btn-img" src="./assets/images/buttons/enlace.png" alt="">
-                                        Code
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-container-box category2 ">
-                            <img class="project-box-imgg" src="./assets/images/proyects_imgs/encriptador.png" alt="">
-                            <div class="project-box-info">
-                                <h4 class="project-box-info-title-h4">Desarrollo web de Encriptador de texto</h4>
-                                <p>Sitio web con funcionalidades de encriptar o desencriptar textos, ademas de la opción de cambio de tema de color de la pagina. Presenta un diseño responsive.</p>
-                                <div class="project-box-info-lenguajes">
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/html-5-svgrepo-com.svg" alt="">
-                                        <span>Html</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/css-3-svgrepo-com.svg" alt="">
-                                        <span>CSS</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/bootstrap-svgrepo-com.svg" alt="">
-                                        <span>Bootstrap</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/javascript-svgrepo-com.svg" alt="">
-                                        <span>JavaScript</span>
-                                    </div>
-                                </div>
-                                <div class="project-box-info-btn">
-                                    <a href="https://ronald-jsd.github.io/challenge-alura-encriptador/" target="_blank">
-                                        <img class="info-btn-img" src="./assets/images/buttons/deploy-svgrepo-com.svg" alt=""> 
-                                        Deploy
-                                    </a>
-                                    <a href="https://github.com/Ronald-jsd/challenge-alura-encriptador?tab=readme-ov-file" target="_blank">
-                                        <img class="info-btn-img" src="./assets/images/buttons/enlace.png" alt="">
-                                        Code
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- FINAL PROYECTO -->
-                        <div class="project-container-box category ">
-                            <img class="project-box-imgg" src="./assets/images/proyects_imgs/portada-youtube.png" alt="">
-                            <div class="project-box-info">
-                                <h4 class="project-box-info-title-h4">Proyectos Backend</h4>
-                                <p>Canal de mis evaluaciones y proyectos Backend con .Net  | JAVA | SQL SERVER | MYSQL.</p>
-                                <div class="project-box-info-lenguajes">
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/NET_logo.svg.png" alt="">
-                                        <span>NET</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/Spring_Boot.svg" alt="">
-                                        <span>Spring Boot</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/microsoft-sql-server-logo-svgrepo-com.svg" alt="">
-                                        <span>SQL Server</span>
-                                    </div>
-                                    <div class="technology-item">
-                                        <img src="./assets/images/tecnology/mysql_icon.png" alt="">
-                                        <span>MySQL</span>
-                                    </div>
-                                </div>
-                                <div class="project-box-info-btn">
-                                    <a href="https://www.youtube.com/playlist?list=PLg0liiHAILuPMaEEpCFcto9hYLUFFpbM5"  target="_blank">
-                                        <img class="info-btn-img" src="./assets/images/buttons/deploy-svgrepo-com.svg" alt="" > 
-                                        Grabaciones
-                                    </a>
-                                    <a href="https://github.com/Ronald-jsd"  target="_blank">
-                                        <img class="info-btn-img" src="./assets/images/buttons/enlace.png" alt="">
-                                         General
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
+                        <script src="./assets/js/projects.js"></script>
+                        <div class="project-container-box"></div>
                     </div>
                 </section>
 
-                <!-- -------------- CONTACT BOX ---------------- -->
                 <section class="section" id="contact">
                     <div class="top-header">
                         <h2>Contacto</h2>
@@ -566,96 +238,82 @@
                         <div class="col">
                             <div class="contact-info">
                                 <h2>Encuéntrame <i class="uil uil-corner-right-down"></i></h2>
-                                <a href="https://wa.me/51923965870" style="color: rgb(81, 243, 94);">
-                                    <i class="uil uil-phone"></i> 
-                                    <i class="fa fa-whatsapp"></i> 
+                                <a href="https://wa.me/51923965870" target="_blank" rel="noopener noreferrer">
+                                    <i class="uil uil-phone"></i>
+                                    <i class="fa fa-whatsapp"></i>
                                     Tel: +51 923 965 870
                                 </a>
-                                <a href="mailto:ronaldsantiago.jaime@gmail.com?subject=Asunto del correo&body=Hola,%20Ronald." style="color: yellow;">
-                                    <i class="uil uil-envelope"></i> 
+                                <a
+                                    href="mailto:ronaldsantiago.jaime@gmail.com?subject=Asunto del correo&body=Hola,%20Ronald.">
+                                    <i class="uil uil-envelope"></i>
                                     ronaldsantiago.jaime@gmail.com
                                 </a>
                             </div>
                         </div>
                         <div class="col">
-                            <form action="https://formspree.io/f/mnnqnzdj" method="POST">
+                            <form id="myForm" method="POST">
                                 <div class="form-control">
                                     <div class="form-inputs">
-                                        <input type="text" class="input-field" placeholder="Nombre" id="name" name="name"
-                                            required>
+                                        <input type="text" class="input-field" placeholder="Nombre" id="name"
+                                            name="name" required>
                                         <input type="email" class="input-field" placeholder="Email" id="email"
-                                            name="email" required
-                                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                                            title="Por favor, introduce un correo electrónico válido.">
+                                            name="email" required>
+                                        <p id="error" style="color:red;"></p>
                                     </div>
                                     <div class="text-area">
-                                        <textarea placeholder="Mensaje" id="message" name="message" required
-                                            title="Por favor, introduce un correo electrónico válido."></textarea>
+                                        <textarea placeholder="Mensaje" id="message" name="message" required></textarea>
                                     </div>
                                     <div class="form-button">
                                         <button type="submit" class="btn">Enviar</button>
                                     </div>
                                 </div>
                             </form>
+                            <p id="success" style="margin-top: 3px;"></p>
                         </div>
                     </div>
                 </section>
             </main>
-
-            <!-- --------------- FOOTER --------------- -->
         </div>
         <footer>
-            <!-- <div class="top-footer">
-                <p>Ronald</p>
-            </div> -->
-            <!-- <div class="middle-footer">
-                <ul class="footer-menu">
-                    <li class="footer_menu_list"><a href="#home">Home</a></li>
-                    <li class="footer_menu_list"><a href="#about">About</a></li>
-                    <li class="footer_menu_list"><a href="#projects">Projects</a></li>
-                    <li class="footer_menu_list"><a href="#contact">Contact</a></li>
-                </ul>
-            </div> -->
             <div class="footer-social-icons">
                 <div class="icon-i ">
-                    <a class="icon-i" href="https://app.aluracursos.com/user/ronald-santi-jd">
-                        <img src="./assets/images/tecnology/oracle-one.jpg" alt=""> 
+                    <a class="icon-i" href="https://app.aluracursos.com/user/ronald-santi-jd" target="_blank" rel="noopener noreferrer">
+                        <img src="./assets/images/tecnology/oracle-one.jpg" alt="">
                     </a>
                 </div>
                 <div class="icon-i ">
-                    <a href="https://www.linkedin.com/in/ronaldjaimeduran/">
-                    <i class="fa-brands fa-linkedin-in"></i>
+                    <a href="https://www.linkedin.com/in/ronaldjaimeduran/" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-linkedin-in"></i>
                     </a>
                 </div>
                 <div class="icon-i ">
-                    <a href="https://github.com/Ronald-jsd">
-                    <i class="uil uil-github-alt"></i>
+                    <a href="https://github.com/Ronald-jsd" target="_blank" rel="noopener noreferrer">
+                        <i class="uil uil-github-alt"></i>
                     </a>
                 </div>
             </div>
             <div class="bottom-footer">
-                <p class="notranslate">Ronald - Copyright &copy; 2025   </p>
+                <p class="notranslate">Ronald - Copyright &copy; 2025 </p>
             </div>
             <div id="google_translate_element" class="google_translate"></div>
         </footer>
     </div>
 
     <script src="./assets/js/audio.js"></script>
+    <script src="./assets/js/carousel.js"></script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="assets/js/main.js"></script>
     <script src="./assets/js/app.js"></script>
     </div>
 
-    <!-- Idioma google translate -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es,fr,de,ru,zh-CN'}, 'google_translate_element');
+            new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'en,es,fr,de,ru,zh-CN' }, 'google_translate_element');
         }
     </script>
-    <script type="text/javascript" 
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>
