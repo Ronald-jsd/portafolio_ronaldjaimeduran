@@ -566,14 +566,18 @@ body.light-mode .skills-box {
     width: 100%;
     overflow: hidden;
     padding: 3.5rem 0;
-
     border: 1px solid var(--border-dark);
-
     position: relative;
     background: #00000031;
     border-radius: 8px;
     cursor: grab;
     user-select: none;
+    margin-bottom: 2rem;
+
+    text-align: center;
+}
+
+.tech-carousel-title{
     margin-bottom: 2rem;
 }
 
@@ -946,6 +950,8 @@ body.light-mode #success {
 
 .col {
     width: 50%;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 /* ----- LIGHTBOX ----- */
