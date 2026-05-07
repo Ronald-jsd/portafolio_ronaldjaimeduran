@@ -27,7 +27,7 @@ const projectsData = [
             { name: "Docker", img: "https://img.icons8.com/?size=100&id=22813&format=png&color=000000" },
         ],
         links: [
-            { type: "code", url: "", label: "Code" },
+            { type: "code", url: "https://github.com/Ronald-jsd/api-gestion-integral-clinica", label: "Code" },
             { type: "video", url: "https://youtu.be/pD3MIWuE7sY", label: "Play" }
         ],
         category: "category1"
