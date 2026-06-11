@@ -254,6 +254,21 @@ const projectsData = [
             { type: "deploy", url: "https://www.youtube.com/playlist?list=PLg0liiHAILuPMaEEpCFcto9hYLUFFpbM5", label: "Youtube" },
         ],
         category: "category"
+    },
+    {
+        title: "Analisis de Datos",
+        description: "3 Proyectos de analisis de datos sobre ventas vg sales con Power BI, con el objetivo de mostrar mis habilidades en el manejo de esta herramienta y la capacidad de analizar datos para obtener insights valiosos.",
+        images: [
+            "./assets/images/proyects_imgs/image.png"
+        ],
+        tech: [
+            { name: "Power BI", img: "./assets/images/tecnology/NET_logo.svg.png" },
+        ],
+        links: [
+            { type: "code", url: "https://github.com/Ronald-jsd", label: "Repositorio" },
+            { type: "deploy", url: "https://www.youtube.com/playlist?list=PLg0liiHAILuPMaEEpCFcto9hYLUFFpbM5", label: "Youtube" },
+        ],
+        category: "category"
     }
 ];
 

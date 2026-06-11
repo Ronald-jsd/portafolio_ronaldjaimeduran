@@ -438,25 +438,29 @@ body.light-mode .scroll-btn:hover {
     box-shadow: var(--shadow-lg);
 }
 
-.nav-button select {
-    padding: 8px 12px;
-    border-radius: 6px;
-    background: var(--bg-card-dark);
-    color: var(--text-light);
-    border: 1px solid rgba(37, 34, 34, 0.623);
-    cursor: pointer;
-    margin-right: 10px;
+.btn-share{
+    background: rgba(223, 6, 6, 0.025);
+    border: 1px solid var(--border-dark);
+    color:  rgba(255, 255, 255, 0.69);
+    border-radius: 8px;
 }
 
-select option {
-    background-color: rgb(27, 26, 26);
+body.light-mode .btn-share {
+    background: rgba(223, 6, 6, 0.025);
+    border: 1px solid var(--border-light);
+    color: var(--text-dark);
+}
+
+.btn-share:hover  {
+    background: rgba(13, 16, 156, 0.345);
+    border-color: rgba(255, 255, 255, 0.396);
     color: white;
 }
 
-body.light-mode .nav-button select {
-    background: var(--bg-card-light);
-    color: var(--text-dark);
-    border: 1px solid var(--border-light);
+body.light-mode .btn-share:hover {
+    background: rgba(0, 4, 255, 0.055);
+    border-color: rgba(0, 0, 0, 0.324);
+    color: rgba(0, 0, 0, 0.811);
 }
 
 /* ----- SECTIONS HEADERS ----- */
@@ -1043,6 +1047,255 @@ body.light-mode #success {
         transform: scale(1)
     }
 }
+
+/***/
+#timeline {
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* ITEM */
+
+.timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 40px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 0;
+    bottom: -40px;
+    width: 3px;
+    background: var(--text-muted);
+}
+
+.timeline-item:last-child::before {
+    bottom: 50%;
+}
+
+/* PUNTO */
+
+.timeline-dot {
+    position: absolute;
+    left: 8px;
+    top: 15px;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    background: gray;
+
+    border: 3px solid white;
+
+    z-index: 10;
+}
+
+/* TARJETA */
+
+.timeline-content {
+    background: var(--bg-card-dark);
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.1);
+
+    transition: .3s;
+}
+
+body.light-mode .timeline-content  {
+    background: var(--bg-card-light);
+    border: 1px solid var(--border-light);
+   
+}
+
+.timeline-content:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.15);
+}
+
+.timeline-content h3,
+.timeline-content h4 {
+    margin-bottom: 10px;
+    color : var(--text-dark);
+}
+
+.timeline-date {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-muted);
+}
+
+/* IMAGEN */
+
+.timeline-img {
+
+    width: 100%;
+
+    max-height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    margin-bottom: 15px;
+
+    cursor: pointer;
+}
+
+/* NIVELES */
+
+.level-1 {
+    margin-left: 40px;
+}
+
+.level-2 {
+    margin-left: 80px;
+}
+
+/* BOTON */
+
+.view-all-btn {
+
+    display: block;
+
+    margin: 30px auto;
+
+    padding: 12px 25px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    background: orange;
+
+    color: white;
+
+    font-size: 15px;
+
+    transition: .3s;
+}
+
+.view-all-btn:hover {
+
+    transform: translateY(-2px);
+}
+
+/* MODAL ESTUDIOS */
+
+.studies-modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.8);
+
+    z-index: 9999;
+
+    overflow-y: auto;
+
+}
+
+
+.studies-modal.light-mode {
+    background: orange;
+    color: var(--text-dark);
+}
+
+
+.studies-modal-content {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: 40px auto;
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    position: relative;
+}
+
+#allStudiesContainer {
+    margin-top: 30px;
+}
+
+.close-studies-modal {
+
+    position: absolute;
+
+    top: 10px;
+
+    right: 20px;
+
+    font-size: 40px;
+
+    cursor: pointer;
+}
+
+/* MODAL IMAGEN */
+
+.image-modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.9);
+
+    z-index: 10000;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.image-modal img {
+
+    max-width: 90%;
+
+    max-height: 90%;
+}
+
+.close-modal {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 30px;
+
+    color: white;
+
+    font-size: 40px;
+
+    cursor: pointer;
+}
+
+/**/
+
+
 
 /* ----- FOOTER ----- */
 footer {
