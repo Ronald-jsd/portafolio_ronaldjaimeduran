@@ -155,65 +155,68 @@ form.addEventListener("submit", async function (e) {
 const cvFileName = "CV-RonaldJaimeDuran.pdf";
 const cvFilePath = "./assets/files/CV-RonaldJaimeDuran.pdf";
 
-document.getElementById('downloadBtn').addEventListener('click', function() {
-    const link = document.createElement('a');
-    link.href = cvFilePath;
-    link.download = cvFileName;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+document.getElementById('downloadBtn').addEventListener('click', function () {
+  const link = document.createElement('a');
+  link.href = cvFilePath;
+  link.download = cvFileName;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 });
 
-document.getElementById('shareBtn').addEventListener('click', async function() {
-    if (navigator.share) {
-        try {
-            const response = await fetch(cvFilePath);
-            const blob = await response.blob();
-            const file = new File([blob], cvFileName, { type: 'application/pdf' });
-            
-            await navigator.share({
-                title: 'CV - Ronald Jaime Durán',
-                text: 'Mira mi currículum vitae',
-                files: [file]
-            });
-        } catch (error) {
-            if (error.name !== 'AbortError') {
-                console.error('Error al compartir:', error);
-                fallbackShare();
-            }
-        }
-    } else {
+document.getElementById('shareBtn').addEventListener('click', async function () {
+  if (navigator.share) {
+    try {
+      const response = await fetch(cvFilePath);
+      const blob = await response.blob();
+      const file = new File([blob], cvFileName, { type: 'application/pdf' });
+
+      await navigator.share({
+        title: 'CV - Ronald Jaime Durán',
+        text: 'Mira mi currículum vitae',
+        files: [file]
+      });
+    } catch (error) {
+      if (error.name !== 'AbortError') {
+        console.error('Error al compartir:', error);
         fallbackShare();
+      }
     }
+  } else {
+    fallbackShare();
+  }
 });
 
 function fallbackShare() {
-    const absoluteUrl = new URL(cvFilePath, window.location.href).href;
-    
-    navigator.clipboard.writeText(absoluteUrl).then(() => {
-        showToast('¡Enlace del CV copiado al portapapeles!');
-    }).catch(() => {
-        prompt('Copia este enlace para compartir tu CV:', absoluteUrl);
-    });
+  const absoluteUrl = new URL(cvFilePath, window.location.href).href;
+  showToast('Copiando enlace del CV...');
+
+  navigator.clipboard.writeText(absoluteUrl).then(() => {
+    showToast('¡Enlace del CV copiado al portapapeles!');
+    console.log('URL copiada:', absoluteUrl);
+
+  }).catch(() => {
+    prompt('Copia este enlace para compartir tu CV:', absoluteUrl);
+  });
 }
 
 function showToast(message) {
-    const toast = document.createElement('div');
-    toast.textContent = message;
-    toast.style.position = 'fixed';
-    toast.style.bottom = '20px';
-    toast.style.left = '50%';
-    toast.style.transform = 'translateX(-50%)';
-    toast.style.backgroundColor = '#333';
-    toast.style.color = 'white';
-    toast.style.padding = '12px 24px';
-    toast.style.borderRadius = '8px';
-    toast.style.zIndex = '9999';
-    toast.style.fontSize = '14px';
-    toast.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
-    document.body.appendChild(toast);
-    
-    setTimeout(() => {
-        toast.remove();
-    }, 3000);
+  const toast = document.createElement('div');
+  toast.textContent = message;
+  toast.style.position = 'fixed';
+  toast.style.bottom = '20px';
+  toast.style.left = '50%';
+  toast.style.transform = 'translateX(-50%)';
+  toast.style.backgroundColor = '#333';
+  toast.style.color = 'white';
+  toast.style.padding = '12px 24px';
+  toast.style.borderRadius = '8px';
+  toast.style.zIndex = '9999';
+  toast.style.fontSize = '14px';
+  toast.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
 }
