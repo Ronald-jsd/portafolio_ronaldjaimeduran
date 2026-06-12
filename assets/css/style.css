@@ -394,7 +394,7 @@ body.light-mode .featured-text-info {
     border-radius: 2rem;
     color: var(--text-light);
     font-size: 0.9rem;
-   
+
 }
 
 body.light-mode .scroll-btn {
@@ -438,10 +438,10 @@ body.light-mode .scroll-btn:hover {
     box-shadow: var(--shadow-lg);
 }
 
-.btn-share{
+.btn-share {
     background: rgba(223, 6, 6, 0.025);
     border: 1px solid var(--border-dark);
-    color:  rgba(255, 255, 255, 0.69);
+    color: rgba(255, 255, 255, 0.69);
     border-radius: 8px;
 }
 
@@ -451,7 +451,7 @@ body.light-mode .btn-share {
     color: var(--text-dark);
 }
 
-.btn-share:hover  {
+.btn-share:hover {
     background: rgba(13, 16, 156, 0.345);
     border-color: rgba(255, 255, 255, 0.396);
     color: white;
@@ -580,7 +580,7 @@ body.light-mode .skills-box {
     text-align: center;
 }
 
-.tech-carousel-title{
+.tech-carousel-title {
     margin-bottom: 2rem;
 }
 
@@ -1105,15 +1105,15 @@ body.light-mode #success {
     border-radius: 15px;
 
     box-shadow:
-        0 4px 15px rgba(0,0,0,.1);
+        0 4px 15px rgba(0, 0, 0, .1);
 
     transition: .3s;
 }
 
-body.light-mode .timeline-content  {
+body.light-mode .timeline-content {
     background: var(--bg-card-light);
     border: 1px solid var(--border-light);
-   
+
 }
 
 .timeline-content:hover {
@@ -1121,13 +1121,13 @@ body.light-mode .timeline-content  {
     transform: translateY(-3px);
 
     box-shadow:
-        0 10px 25px rgba(0,0,0,.15);
+        0 10px 25px rgba(0, 0, 0, .15);
 }
 
 .timeline-content h3,
 .timeline-content h4 {
     margin-bottom: 10px;
-    color : var(--text-dark);
+    color: var(--text-dark);
 }
 
 .timeline-date {
@@ -1203,7 +1203,7 @@ body.light-mode .timeline-content  {
 
     inset: 0;
 
-    background: rgba(0,0,0,.8);
+    background: rgba(0, 0, 0, .8);
 
     z-index: 9999;
 
@@ -1262,7 +1262,7 @@ body.light-mode .timeline-content  {
 
     inset: 0;
 
-    background: rgba(0,0,0,.9);
+    background: rgba(0, 0, 0, .9);
 
     z-index: 10000;
 
@@ -1508,6 +1508,7 @@ body.light-mode .background span {
 
     }
 
+
     .nav-menu ul {
         flex-direction: column;
         align-items: center;
@@ -1517,6 +1518,17 @@ body.light-mode .background span {
 
     .nav-menu-btn {
         display: flex;
+    }
+
+    .featured-name {
+        font-size: 2.2rem;
+    }
+
+    .nav-button {
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        height: auto;
     }
 
     .featured-container {
