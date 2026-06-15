@@ -440,7 +440,7 @@ body.light-mode .scroll-btn:hover {
 
 .btn-share {
     background: rgba(223, 6, 6, 0.025);
-    border: 1px solid var(--border-dark);
+    border: 1px solid var(--text-muted);
     color: rgba(255, 255, 255, 0.69);
     border-radius: 8px;
 }
@@ -1505,9 +1505,7 @@ body.light-mode .background span {
 
     .nav-menu.responsive {
         left: 0px;
-
     }
-
 
     .nav-menu ul {
         flex-direction: column;
