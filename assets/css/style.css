@@ -1565,8 +1565,6 @@ body.light-mode .background span {
     display: none !important;
 }
 
-
-
 #videoModal {
     position: fixed;
     inset: 0;
@@ -1627,7 +1625,6 @@ body.light-mode .video-overlay {
 .video-content iframe {
     width: 100%;
     aspect-ratio: 16/9;
-    /* Mantiene proporción */
     border-radius: 8px;
 }
 

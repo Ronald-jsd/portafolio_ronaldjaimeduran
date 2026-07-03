@@ -237,6 +237,25 @@ const projectsData = [
         category: "category2"
     },
     {
+        title: "Analisis de Datos",
+        description: "3 Proyectos de analisis de datos sobre ventas vg sales con Power BI, con el objetivo de mostrar mis habilidades en el manejo de esta herramienta y la capacidad de analizar datos para obtener insights valiosos.",
+        images: [
+            "./assets/images/proyects_imgs/package-power-bi-projects/project-1.png",
+            "./assets/images/proyects_imgs/package-power-bi-projects/project-2.png",
+            "./assets/images/proyects_imgs/package-power-bi-projects/project-3-1.png",
+            "./assets/images/proyects_imgs/package-power-bi-projects/project-3-2.png",
+            "./assets/images/proyects_imgs/package-power-bi-projects/project-3-3.png",
+        ],
+        tech: [
+            { name: "Power BI", img: "./assets/images/tecnology/power-bi-icon.jpg" },
+        ],
+        links: [
+            { type: "code", url: "https://github.com/Ronald-jsd/proyectos-power-bi/tree/main", label: "Repositorio" },
+            { type: "deploy", url: "https://app.powerbi.com/links/OsXw7j9rvd?ctid=7504e318-8e1e-4d55-bffd-875b4dee8260&pbi_source=linkShare", label: "Power BI" },
+        ],
+        category: "category"
+    },
+    {
         title: "Proyectos Backend",
         description: "Canal de mis evaluaciones y proyectos Backend con .Net | JAVA | SQL SERVER | MYSQL.",
         images: [
@@ -254,22 +273,8 @@ const projectsData = [
             { type: "deploy", url: "https://www.youtube.com/playlist?list=PLg0liiHAILuPMaEEpCFcto9hYLUFFpbM5", label: "Youtube" },
         ],
         category: "category"
-    },
-    {
-        title: "Analisis de Datos",
-        description: "3 Proyectos de analisis de datos sobre ventas vg sales con Power BI, con el objetivo de mostrar mis habilidades en el manejo de esta herramienta y la capacidad de analizar datos para obtener insights valiosos.",
-        images: [
-            "./assets/images/proyects_imgs/image.png"
-        ],
-        tech: [
-            { name: "Power BI", img: "./assets/images/tecnology/NET_logo.svg.png" },
-        ],
-        links: [
-            { type: "code", url: "https://github.com/Ronald-jsd", label: "Repositorio" },
-            { type: "deploy", url: "https://www.youtube.com/playlist?list=PLg0liiHAILuPMaEEpCFcto9hYLUFFpbM5", label: "Youtube" },
-        ],
-        category: "category"
     }
+    
 ];
 
 function renderProjects() {
