@@ -284,7 +284,6 @@ function renderProjects() {
     projectsData.forEach(project => {
         const projectBox = document.createElement("div");
         projectBox.classList.add("project-container-box", project.category);
-        // Generate Tech HTML
         const techHtml = project.tech.map(tech => `
             <div class="technology-item">
                 <img src="${tech.img}" alt="${tech.name}">
@@ -369,9 +368,6 @@ const linksHtml = project.links.map(link => {
             });
         }
     });
-
-
-
     createLightbox();
     createVideoModal();
 
@@ -406,7 +402,6 @@ function openVideoModal(url) {
     const modal = document.getElementById("videoModal");
     const frame = document.getElementById("videoFrame");
 
-    // Convertir URL a embed
     const videoId = url.includes("youtu.be") 
         ? url.split("/").pop().split("?")[0]
         : url.split("v=")[1]?.split("&")[0];
@@ -491,7 +486,6 @@ function openLightbox(images, index) {
         lightboxImg.src = currentProjectImages[currentImageIndex];
         lightbox.style.display = 'flex';
 
-        // Show/Hide buttons based on single image
         if (currentProjectImages.length > 1) {
             prevBtn.style.display = 'block';
             nextBtn.style.display = 'block';
