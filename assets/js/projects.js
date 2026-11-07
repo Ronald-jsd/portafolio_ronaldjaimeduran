@@ -255,26 +255,7 @@ const projectsData = [
         ],
         category: "category"
     },
-    {
-        title: "Proyectos Backend",
-        description: "Canal de mis evaluaciones y proyectos Backend con .Net | JAVA | SQL SERVER | MYSQL.",
-        images: [
-            "./assets/images/proyects_imgs/package-canal-youtube/portada-youtube.png",
-            "./assets/images/proyects_imgs/package-canal-youtube/youtube.png",
-        ],
-        tech: [
-            { name: "NET", img: "./assets/images/tecnology/NET_logo.svg.png" },
-            { name: "Spring Boot", img: "./assets/images/tecnology/Spring_Boot.svg" },
-            { name: "SQL Server", img: "./assets/images/tecnology/microsoft-sql-server-logo-svgrepo-com.svg" },
-            { name: "MySQL", img: "./assets/images/tecnology/mysql_icon.png" }
-        ],
-        links: [
-            { type: "code", url: "https://github.com/Ronald-jsd", label: "Repositorio" },
-            { type: "deploy", url: "https://www.youtube.com/playlist?list=PLg0liiHAILuPMaEEpCFcto9hYLUFFpbM5", label: "Youtube" },
-        ],
-        category: "category"
-    }
-    
+
 ];
 
 function renderProjects() {
@@ -512,3 +493,112 @@ function changeImage(n) {
 }
 
 document.addEventListener("DOMContentLoaded", renderProjects);
+
+/* ----- PLAYLIST PANEL (Proyectos Backend) ----- */
+const PLAYLIST_ID = "PLg0liiHAILuPMaEEpCFcto9hYLUFFpbM5";
+
+const playlistData = [
+    { id: "CXwS78zJxn4", title: "Proyecto Full Stack Spring Boot y Thymeleaf", published: "2025-09-20" },
+    { id: "54qT4y8PUEM", title: "Proyecto Full Stack con Spring Boot y Angular", published: "2025-09-20" },
+    { id: "cPM6luSHGW4", title: "Evaluación Spring Boot", published: "2025-08-27" },
+    { id: "KlX1QQODmLk", title: "Aplicación Android - Gestión de inventarios y ventas", published: "2025-08-19" },
+    { id: "UAKlVD6EWOY", title: "Examen 1 - Programación Orientada a Objetos 2", published: "2025-04-10" },
+    { id: "7EdUzisIhSs", title: "Examen Evaluación T1 - Programación Orientada a Objetos C#", published: "2024-10-01" },
+    { id: "jWUi3kZyvzQ", title: "Conversor de Moneda con Java | Alura Challenge", published: "2024-12-14" },
+    { id: "iKUvh-_yKnY", title: "Bootstrap 5 Responsive Landing Page", published: "2024-12-11" },
+    { id: "JqGyV9xTnAk", title: "Examen Lenguaje de Programación 1 - CIBERTEC", published: "2024-12-06" },
+    { id: "LxAR9QR6T6E", title: "Evaluación Final POO I", published: "2024-11-21" },
+    { id: "P4P5eSJ6-bc", title: "Examen T1 - Lenguaje de Programación I", published: "2024-11-21" },
+    { id: "r0Hk6sAWOpY", title: "Lenguaje de Programación 1 - Examen Final", published: "2024-12-20" }
+];
+
+function timeAgoEs(dateStr) {
+    const now = new Date();
+    const then = new Date(dateStr);
+    const seconds = Math.floor((now - then) / 1000);
+    const units = [
+        { secs: 31536000, singular: "año", plural: "años" },
+        { secs: 2592000, singular: "mes", plural: "meses" },
+        { secs: 604800, singular: "semana", plural: "semanas" },
+        { secs: 86400, singular: "día", plural: "días" },
+        { secs: 3600, singular: "hora", plural: "horas" }
+    ];
+    for (const unit of units) {
+        const value = Math.floor(seconds / unit.secs);
+        if (value >= 1) {
+            return `hace ${value} ${value === 1 ? unit.singular : unit.plural}`;
+        }
+    }
+    return "hace un momento";
+}
+
+function loadPlaylistVideo(index, autoplay = true) {
+    const video = playlistData[index];
+    if (!video) return;
+
+    const facade = document.getElementById("playlistFacade");
+    const frame = document.getElementById("playlistFrame");
+    const thumb = document.getElementById("facadeThumb");
+    const title = document.getElementById("facadeTitle");
+    const watchLink = document.getElementById("facadeWatch");
+
+    frame.src = `https://www.youtube.com/embed/${video.id}?autoplay=${autoplay ? 1 : 0}&rel=0&list=${PLAYLIST_ID}&index=${index + 1}`;
+    frame.style.display = "block";
+    facade.style.display = "none";
+
+    // Preparar la fachada para cuando se vuelva a mostrar
+    thumb.src = `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`;
+    thumb.onerror = () => { thumb.onerror = null; thumb.src = `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`; };
+    title.textContent = video.title;
+    watchLink.href = `https://www.youtube.com/watch?v=${video.id}&list=${PLAYLIST_ID}&index=${index + 1}`;
+
+    document.querySelectorAll(".playlist-item").forEach((item, i) => {
+        const isActive = i === index;
+        item.classList.toggle("active", isActive);
+        item.setAttribute("aria-current", isActive ? "true" : "false");
+    });
+}
+
+function initPlaylistPanel() {
+    const list = document.getElementById("playlistList");
+    const facade = document.getElementById("playlistFacade");
+    if (!list || !facade) return;
+
+    document.getElementById("playlistCount").textContent = `${playlistData.length} videos`;
+
+    list.innerHTML = playlistData.map((video, index) => `
+        <button class="playlist-item${index === 0 ? " active" : ""}" data-index="${index}" aria-current="${index === 0}">
+            <span class="playlist-item-num">${index + 1}</span>
+            <span class="playlist-item-thumb">
+                <img src="https://i.ytimg.com/vi/${video.id}/mqdefault.jpg" alt="${video.title}" loading="lazy" width="168" height="94">
+                <span class="playlist-item-play-icon"><i class="fas fa-play"></i></span>
+            </span>
+            <span class="playlist-item-info">
+                <span class="playlist-item-title">${video.title}</span>
+                <span class="playlist-item-channel">Ron Santi</span>
+                <span class="playlist-item-time">${timeAgoEs(video.published)}</span>
+            </span>
+        </button>
+    `).join("");
+    list.scrollTop = 0;
+
+    list.addEventListener("click", (e) => {
+        const item = e.target.closest(".playlist-item");
+        if (!item) return;
+        loadPlaylistVideo(Number(item.dataset.index), true);
+    });
+
+    const startPlayback = () => loadPlaylistVideo(0, true);
+    facade.addEventListener("click", (e) => {
+        if (e.target.closest(".facade-yt")) return; // dejar que el enlace funcione
+        startPlayback();
+    });
+    facade.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            startPlayback();
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", initPlaylistPanel);

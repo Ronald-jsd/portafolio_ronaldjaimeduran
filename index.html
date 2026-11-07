@@ -61,7 +61,7 @@
             <nav id="header">
                 <div class="nav-container">
                     <div class="nav-logo">
-                        <a class="nav-name" href="#">Ronald</a>
+                        <a class="nav-name" href="#home">Ronald</a>
                     </div>
                     <div class="nav-menu" id="myNavMenu">
                         <ul class="nav_menu_list">
@@ -73,6 +73,9 @@
                             </li>
                             <li class="nav_list">
                                 <a href="#projects" class="nav-link">Proyectos</a>
+                            </li>
+                            <li class="nav_list">
+                                <a href="#playlistPanel" class="nav-link">Playlist</a>
                             </li>
                             <li class="nav_list">
                                 <a href="#contact" class="nav-link">Contacto</a>
@@ -256,7 +259,44 @@
                         <script src="./assets/js/projects.js"></script>
                         <div class="project-container-box"></div>
                     </div>
-                </section>
+
+                     <div class="playlist-panel" id="playlistPanel">
+                        <div class="playlist-badge"><span class="playlist-badge-dot"></span>YouTube Playlist</div>
+                        <h3 class="playlist-title">Mi playlist de Proyectos</h3>
+                        <p class="playlist-subtitle">Canal de mis evaluaciones y proyectos Backend con JAVA, Spring Boot | .Net | SQL SERVER | MYSQL | Azure DevOps | otros...</p>
+                        <div class="playlist-meta"><span class="playlist-meta-dot"></span><span id="playlistCount">12 videos</span><span class="playlist-meta-sep">&bull;</span>Ron Santi</div>
+                        <div class="playlist-content">
+                            <div class="playlist-player">
+                                <div class="playlist-facade" id="playlistFacade" role="button" tabindex="0" aria-label="Reproducir playlist">
+                                    <img id="facadeThumb" class="facade-thumb" src="https://i.ytimg.com/vi/CXwS78zJxn4/maxresdefault.jpg" alt="Proyectos Backend - YouTube Playlist" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/CXwS78zJxn4/hqdefault.jpg'">
+                                    <div class="facade-gradient"></div>
+                                    <div class="facade-info">
+                                        <div class="facade-avatar"><i class="fa-brands fa-youtube"></i></div>
+                                        <div class="facade-info-text">
+                                            <p class="facade-title" id="facadeTitle">Proyecto Full Stack Spring Boot y Thymeleaf</p>
+                                            <p class="facade-channel">Ron Santi</p>
+                                        </div>
+                                    </div>
+                                    <button class="facade-play" id="facadePlay" aria-label="Reproducir video">
+                                        <svg viewBox="0 0 68 48" width="68" height="48" aria-hidden="true">
+                                            <path class="facade-play-bg" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.26 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z"/>
+                                            <path class="facade-play-icon" d="M45 24 27 14v20z"/>
+                                        </svg>
+                                    </button>
+                                    <a class="facade-yt" id="facadeWatch" href="https://www.youtube.com/watch?v=CXwS78zJxn4&list=PLg0liiHAILuPMaEEpCFcto9hYLUFFpbM5" target="_blank" rel="noopener noreferrer">Ver en <span class="facade-yt-logo"><i class="fa-brands fa-youtube"></i> YouTube</span></a>
+                                </div>
+                                <iframe id="playlistFrame" class="playlist-frame" title="Proyectos Backend - YouTube Playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none;"></iframe>
+                            </div>
+                            <aside class="playlist-sidebar">
+                                <div class="playlist-sidebar-header">
+                                    <span>Up Next</span>
+                                    <a class="playlist-sidebar-link" href="https://www.youtube.com/playlist?list=PLg0liiHAILuPMaEEpCFcto9hYLUFFpbM5" target="_blank" rel="noopener noreferrer" title="Ver playlist completa en YouTube"><i class="fa-brands fa-youtube"></i></a>
+                                </div>
+                                <div class="playlist-list" id="playlistList"></div>
+                            </aside>
+                        </div>
+                    </div>
+                 </section>
 
                 <section class="section" id="contact">
                     <div class="top-header">
