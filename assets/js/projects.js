@@ -496,8 +496,16 @@ document.addEventListener("DOMContentLoaded", renderProjects);
 
 /* ----- PLAYLIST PANEL (Proyectos Backend) ----- */
 const PLAYLIST_ID = "PLg0liiHAILuPMaEEpCFcto9hYLUFFpbM5";
+const PLAYLIST_CHANNEL = "Ron Santi";
 
-const playlistData = [
+// Pega aquí tu API key de YouTube Data API v3 (gratis) para sincronizar la
+// playlist automáticamente. Deja vacío ("") para usar la lista local de respaldo.
+// Cómo obtenerla: ver instrucciones al final del archivo / README.
+const YOUTUBE_API_KEY = "AIzaSyB2usaYDFJ8q9TtsWoBbR_sQj92PmlpJCk";
+
+// Lista local de respaldo: se usa si no hay API key o si falla la sincronización.
+// El orden del arreglo = orden de la playlist. "published" = fecha de publicación del video.
+const FALLBACK_PLAYLIST = [
     { id: "CXwS78zJxn4", title: "Proyecto Full Stack Spring Boot y Thymeleaf", published: "2025-09-20" },
     { id: "54qT4y8PUEM", title: "Proyecto Full Stack con Spring Boot y Angular", published: "2025-09-20" },
     { id: "cPM6luSHGW4", title: "Evaluación Spring Boot", published: "2025-08-27" },
@@ -509,13 +517,33 @@ const playlistData = [
     { id: "JqGyV9xTnAk", title: "Examen Lenguaje de Programación 1 - CIBERTEC", published: "2024-12-06" },
     { id: "LxAR9QR6T6E", title: "Evaluación Final POO I", published: "2024-11-21" },
     { id: "P4P5eSJ6-bc", title: "Examen T1 - Lenguaje de Programación I", published: "2024-11-21" },
-    { id: "r0Hk6sAWOpY", title: "Lenguaje de Programación 1 - Examen Final", published: "2024-12-20" }
+    { id: "r0Hk6sAWOpY", title: "Lenguaje de Programación 1 - Examen Final", published: "2024-12-20" },
+    { id: "36zoLBQYrk4", title: "Sistema de gestión de tareas JavaFX", published: "2026-03-13" },
+    { id: "sGClnFqHJks", title: "Azure DEVOPS Pipeline CI - First Exercise", published: "2026-09-03" },
+    { id: "i8ZV5Ypvi1U", title: "Proyecto Full Stack | Spring Boot + Thymeleaf", published: "2026-04-02" },
+    { id: "pD3MIWuE7sY", title: "ADMINISTRACIÓN CLINICA SPRING BOOT", published: "2026-04-27" },
+    { id: "q4Bh-8LGjis", title: "Sistema Inventarios - Full stack - Angular / Spring Boot", published: "2026-03-15" },
+    { id: "qHyOTCuBw_k", title: "Azure DEVOPS  CI/CD - App Service - Spring Boot", published: "2026-09-05" },
+    { id: "Oej2xIQIhao", title: "Azure Devops CI/CD Azure App Services | Environments", published: "2026-10-29" }
 ];
 
+const playlistState = {
+    raw: [],          // playlist sin ordenar (orden original de YouTube)
+    displayed: [],    // playlist ordenada según el selector
+    currentId: null,  // video cargado en el iframe
+    playing: false,   // true cuando el usuario ya inició la reproducción
+    sort: "newest"    // newest | oldest | playlist
+};
+
+const escHtml = (s) => String(s).replace(/[&<>"']/g, (c) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+}[c]));
+
 function timeAgoEs(dateStr) {
-    const now = new Date();
     const then = new Date(dateStr);
-    const seconds = Math.floor((now - then) / 1000);
+    if (isNaN(then)) return "";
+    const seconds = Math.floor((Date.now() - then.getTime()) / 1000);
+    if (seconds < 0) return "próximamente";
     const units = [
         { secs: 31536000, singular: "año", plural: "años" },
         { secs: 2592000, singular: "mes", plural: "meses" },
@@ -525,70 +553,143 @@ function timeAgoEs(dateStr) {
     ];
     for (const unit of units) {
         const value = Math.floor(seconds / unit.secs);
-        if (value >= 1) {
-            return `hace ${value} ${value === 1 ? unit.singular : unit.plural}`;
-        }
+        if (value >= 1) return `hace ${value} ${value === 1 ? unit.singular : unit.plural}`;
     }
     return "hace un momento";
 }
 
-function loadPlaylistVideo(index, autoplay = true) {
-    const video = playlistData[index];
-    if (!video) return;
+function getSorted(list, mode) {
+    const arr = [...list];
+    if (mode === "newest") arr.sort((a, b) => new Date(b.published) - new Date(a.published));
+    else if (mode === "oldest") arr.sort((a, b) => new Date(a.published) - new Date(b.published));
+    else arr.sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+    return arr;
+}
 
-    const facade = document.getElementById("playlistFacade");
-    const frame = document.getElementById("playlistFrame");
-    const thumb = document.getElementById("facadeThumb");
-    const title = document.getElementById("facadeTitle");
-    const watchLink = document.getElementById("facadeWatch");
-
-    frame.src = `https://www.youtube.com/embed/${video.id}?autoplay=${autoplay ? 1 : 0}&rel=0&list=${PLAYLIST_ID}&index=${index + 1}`;
-    frame.style.display = "block";
-    facade.style.display = "none";
-
-    // Preparar la fachada para cuando se vuelva a mostrar
-    thumb.src = `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`;
-    thumb.onerror = () => { thumb.onerror = null; thumb.src = `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`; };
-    title.textContent = video.title;
-    watchLink.href = `https://www.youtube.com/watch?v=${video.id}&list=${PLAYLIST_ID}&index=${index + 1}`;
-
-    document.querySelectorAll(".playlist-item").forEach((item, i) => {
-        const isActive = i === index;
+function markActiveItem(id) {
+    document.querySelectorAll(".playlist-item").forEach((item) => {
+        const isActive = item.dataset.id === id;
         item.classList.toggle("active", isActive);
         item.setAttribute("aria-current", isActive ? "true" : "false");
     });
 }
 
-function initPlaylistPanel() {
+function updateFacade(video) {
+    if (!video) return;
+    const thumb = document.getElementById("facadeThumb");
+    const title = document.getElementById("facadeTitle");
+    const watchLink = document.getElementById("facadeWatch");
+    if (!thumb || !title || !watchLink) return;
+
+    const position = (video.order ?? 0) + 1;
+    thumb.src = `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`;
+    thumb.onerror = () => { thumb.onerror = null; thumb.src = `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`; };
+    title.textContent = video.title;
+    watchLink.href = `https://www.youtube.com/watch?v=${video.id}&list=${PLAYLIST_ID}&index=${position}`;
+}
+
+function renderPlaylist(mode) {
     const list = document.getElementById("playlistList");
-    const facade = document.getElementById("playlistFacade");
-    if (!list || !facade) return;
+    if (!list) return;
 
-    document.getElementById("playlistCount").textContent = `${playlistData.length} videos`;
+    playlistState.sort = mode;
+    const arr = getSorted(playlistState.raw, mode);
+    playlistState.displayed = arr;
 
-    list.innerHTML = playlistData.map((video, index) => `
-        <button class="playlist-item${index === 0 ? " active" : ""}" data-index="${index}" aria-current="${index === 0}">
+    const countEl = document.getElementById("playlistCount");
+    if (countEl) countEl.textContent = `${arr.length} videos`;
+
+    list.innerHTML = arr.map((video, index) => `
+        <button class="playlist-item" data-id="${escHtml(video.id)}" aria-current="false">
             <span class="playlist-item-num">${index + 1}</span>
             <span class="playlist-item-thumb">
-                <img src="https://i.ytimg.com/vi/${video.id}/mqdefault.jpg" alt="${video.title}" loading="lazy" width="168" height="94">
+                <img src="https://i.ytimg.com/vi/${escHtml(video.id)}/mqdefault.jpg" alt="${escHtml(video.title)}" loading="lazy" width="168" height="94">
                 <span class="playlist-item-play-icon"><i class="fas fa-play"></i></span>
             </span>
             <span class="playlist-item-info">
-                <span class="playlist-item-title">${video.title}</span>
-                <span class="playlist-item-channel">Ron Santi</span>
-                <span class="playlist-item-time">${timeAgoEs(video.published)}</span>
+                <span class="playlist-item-title">${escHtml(video.title)}</span>
+                <span class="playlist-item-channel">${escHtml(video.channel || PLAYLIST_CHANNEL)}</span>
+                <span class="playlist-item-time">${escHtml(timeAgoEs(video.published))}</span>
             </span>
         </button>
     `).join("");
     list.scrollTop = 0;
 
+    // Si ya está sonando un video, mantenerlo marcado; si no, marcar el primero y actualizar la fachada
+    if (playlistState.playing && playlistState.currentId) {
+        markActiveItem(playlistState.currentId);
+    } else {
+        markActiveItem(arr[0]?.id);
+        updateFacade(arr[0]);
+    }
+}
+
+function loadPlaylistVideo(videoId, autoplay = true) {
+    const video = playlistState.displayed.find((v) => v.id === videoId)
+        || playlistState.raw.find((v) => v.id === videoId);
+    if (!video) return;
+
+    const facade = document.getElementById("playlistFacade");
+    const frame = document.getElementById("playlistFrame");
+    if (!facade || !frame) return;
+
+    playlistState.currentId = video.id;
+    playlistState.playing = true;
+
+    const position = (video.order ?? 0) + 1;
+    frame.src = `https://www.youtube.com/embed/${video.id}?autoplay=${autoplay ? 1 : 0}&rel=0&list=${PLAYLIST_ID}&index=${position}`;
+    frame.style.display = "block";
+    facade.style.display = "none";
+
+    updateFacade(video); // dejar la fachada lista por si se vuelve a mostrar
+    markActiveItem(video.id);
+}
+
+// Sincroniza la playlist desde YouTube Data API v3 (si hay API key configurada).
+// Retorna null si no hay key o si ocurre cualquier error (se usa la lista local).
+async function fetchPlaylistFromYouTube() {
+    if (!YOUTUBE_API_KEY) return null;
+    try {
+        const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=50&playlistId=${PLAYLIST_ID}&key=${YOUTUBE_API_KEY}`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const videos = (data.items || [])
+            .filter((it) => it?.snippet
+                && it.snippet.title !== "Private video"
+                && it.snippet.title !== "Deleted video")
+            .map((it, i) => ({
+                id: it.contentDetails?.videoId || it.snippet?.resourceId?.videoId,
+                title: it.snippet.title,
+                published: it.contentDetails?.videoPublishedAt || it.snippet?.publishedAt,
+                channel: it.snippet?.videoOwnerChannelTitle || PLAYLIST_CHANNEL,
+                order: it.snippet?.position ?? i
+            }))
+            .filter((v) => v.id);
+        return videos.length ? videos : null;
+    } catch (err) {
+        console.warn("[Playlist] No se pudo sincronizar con YouTube; se usa la lista local.", err);
+        return null;
+    }
+}
+
+async function initPlaylistPanel() {
+    const list = document.getElementById("playlistList");
+    const facade = document.getElementById("playlistFacade");
+    const sortSelect = document.getElementById("playlistSort");
+    if (!list || !facade) return;
+
+    // 1) Pintar de inmediato con la lista local (ordenada por más recientes)
+    playlistState.raw = FALLBACK_PLAYLIST.map((v, i) => ({ ...v, channel: PLAYLIST_CHANNEL, order: i }));
+    renderPlaylist(sortSelect?.value || "newest");
+
     list.addEventListener("click", (e) => {
         const item = e.target.closest(".playlist-item");
         if (!item) return;
-        loadPlaylistVideo(Number(item.dataset.index), true);
+        loadPlaylistVideo(item.dataset.id, true);
     });
 
-    const startPlayback = () => loadPlaylistVideo(0, true);
+    const startPlayback = () => loadPlaylistVideo(playlistState.displayed[0]?.id, true);
     facade.addEventListener("click", (e) => {
         if (e.target.closest(".facade-yt")) return; // dejar que el enlace funcione
         startPlayback();
@@ -599,6 +700,15 @@ function initPlaylistPanel() {
             startPlayback();
         }
     });
+
+    sortSelect?.addEventListener("change", () => renderPlaylist(sortSelect.value));
+
+    // 2) Sincronizar con YouTube en segundo plano; si hay key, la lista se actualiza sola
+    const fetched = await fetchPlaylistFromYouTube();
+    if (fetched) {
+        playlistState.raw = fetched;
+        renderPlaylist(sortSelect?.value || "newest");
+    }
 }
 
 document.addEventListener("DOMContentLoaded", initPlaylistPanel);

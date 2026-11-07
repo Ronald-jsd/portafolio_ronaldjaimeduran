@@ -2095,3 +2095,39 @@ body.light-mode .playlist-player {
         max-height: 380px;
     }
 }
+
+/* ----- PLAYLIST SORT SELECT ----- */
+.playlist-sort {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--panel-border);
+    font-size: 0.72rem;
+    color: var(--panel-muted);
+    flex-shrink: 0;
+}
+
+.playlist-sort-select {
+    background: var(--panel-item);
+    color: var(--panel-text);
+    border: 1px solid var(--panel-border);
+    border-radius: 6px;
+    padding: 0.3rem 0.5rem;
+    font-family: inherit;
+    font-size: 0.72rem;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.playlist-sort-select:hover,
+.playlist-sort-select:focus {
+    border-color: var(--primary);
+}
+
+.playlist-sort-select option {
+    background: var(--panel-bg);
+    color: var(--panel-text);
+}
